@@ -1,0 +1,5 @@
+id: openclaw
+name: "Clawd (OpenClaw Gateway)"
+timeoutMs: 120000
+metadata:
+  thinking: "low"
