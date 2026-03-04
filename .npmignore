@@ -1,0 +1,18 @@
+# tests and local artifacts
+tests/
+runs/
+spec/
+configs/
+.github/
+coverage/
+.hivevm/
+*.log
+
+# keep distributable package content
+!dist/
+!dist/**
+!bin/
+!bin/**
+!README.md
+!LICENSE
+!package.json
