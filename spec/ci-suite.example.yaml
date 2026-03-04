@@ -1,0 +1,15 @@
+name: regression-core
+seed: 2026
+tasks:
+  - id: memory-pref-1d
+    episodes: 20
+  - id: email-triage-basic
+    episodes: 20
+  - id: code-bugfix-small
+    episodes: 10
+thresholds:
+  quality: 7.5
+  successRate: 0.75
+  reliability: 0.95
+  maxCostUsd: 0.2
+  maxTimeSec: 8
