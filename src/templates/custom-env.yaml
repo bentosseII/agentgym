@@ -1,0 +1,22 @@
+name: my-memory-test
+version: 1
+category: memory
+description: Test if agent recalls project decisions from conversation history
+setup:
+  - inject_conversation: ./fixtures/project-decisions.json
+  - simulate_time_passage: 3d
+  - ask: What did we decide about the database migration?
+objective:
+  - return_decision_with_context
+scoring:
+  - type: contains_key_facts
+    values: ['PostgreSQL', 'migrate by March', 'keep legacy read-only']
+    weight: 0.7
+  - type: llm_rubric
+    rubric: Must mention all decisions with correct context and no invented details
+    weight: 0.3
+difficulty:
+  level: medium
+reset:
+  mode: snapshot_restore
+  snapshot: baseline-memory-fixture-v3
