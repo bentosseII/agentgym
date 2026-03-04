@@ -1,0 +1,60 @@
+{
+	"name": "agentgym",
+	"version": "0.1.0",
+	"description": "OpenAI Gym for real-world agent tasks",
+	"type": "module",
+	"author": "Ben Tossell <ben.tossell@gmail.com>",
+	"keywords": [
+		"agent-evals",
+		"ai-agents",
+		"benchmark",
+		"cli",
+		"memory",
+		"testing"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/bentossell/agent-gym",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bentossell/agent-gym.git"
+	},
+	"bugs": {
+		"url": "https://github.com/bentossell/agent-gym/issues"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"files": [
+		"bin",
+		"dist",
+		"src",
+		"README.md",
+		"LICENSE"
+	],
+	"bin": {
+		"agentgym": "./bin/agentgym.js"
+	},
+	"scripts": {
+		"dev": "bun run src/cli.ts",
+		"build": "bun build src/cli.ts --target=node --format=esm --outfile dist/cli.js",
+		"clean": "rm -rf dist",
+		"prepack": "bun run build",
+		"lint": "bunx @biomejs/biome check .",
+		"lint:fix": "bunx @biomejs/biome check --write .",
+		"typecheck": "tsc --noEmit",
+		"test": "bun test",
+		"test:coverage": "bun test --coverage",
+		"verify": "bun run lint && bun run typecheck && bun test"
+	},
+	"dependencies": {
+		"commander": "^14.0.2",
+		"yaml": "^2.8.1",
+		"zod": "^4.1.5"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.2.4",
+		"@types/node": "^24.5.2",
+		"bun-types": "^1.3.10",
+		"typescript": "^5.9.2"
+	}
+}
